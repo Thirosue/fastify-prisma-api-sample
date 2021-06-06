@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id               Int                @id @default(autoincrement())
+  name             String?
+  ResavationRecord ResavationRecord[]
+}
+
+model Resavation {
+  id        Int      @id @default(autoincrement())
+  at        BigInt   @unique
+  stock     Int
+  available Int
+  createAt  DateTime @default(now()) @db.Timestamptz
+  createBy  String   @default("admin")
+  updateAt  DateTime @updatedAt @db.Timestamptz
+  updateBy  String   @default("admin")
+}
+
+model ResavationRecord {
+  id        Int      @id @default(autoincrement())
+  at        BigInt
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  available Boolean  @default(true)
+  createAt  DateTime @default(now()) @db.Timestamptz
+  createBy  String   @default("admin")
+  updateAt  DateTime @updatedAt @db.Timestamptz
+  updateBy  String   @default("admin")
+  version   Int      @default(1)
+}
