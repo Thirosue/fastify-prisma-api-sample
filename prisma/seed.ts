@@ -10,7 +10,7 @@ for(let i = 0; i < 101; i++) {
 
 const at = moment('2021-06-01 10:00').toDate().getTime()
 const records:any = []
-for(let i = 0; i < 5; i++) {
+for(let i = 0; i < 3; i++) {
     records.push({ 
         at
     })
@@ -25,8 +25,7 @@ async function main() {
     const resavation = await prisma.resavation.create({
         data: {
             at,
-            stock: 5,
-            available: 5
+            stock: 3
         }
     })
     console.log(resavation);

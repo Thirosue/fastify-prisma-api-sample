@@ -21,14 +21,13 @@ model User {
 }
 
 model Resavation {
-  id        Int      @id @default(autoincrement())
-  at        BigInt   @unique
-  stock     Int
-  available Int
-  createAt  DateTime @default(now()) @db.Timestamptz
-  createBy  String   @default("admin")
-  updateAt  DateTime @updatedAt @db.Timestamptz
-  updateBy  String   @default("admin")
+  id       Int      @id @default(autoincrement())
+  at       BigInt   @unique
+  stock    Int
+  createAt DateTime @default(now()) @db.Timestamptz
+  createBy String   @default("admin")
+  updateAt DateTime @updatedAt @db.Timestamptz
+  updateBy String   @default("admin")
 }
 
 model ResavationRecord {
@@ -42,4 +41,6 @@ model ResavationRecord {
   updateAt  DateTime @updatedAt @db.Timestamptz
   updateBy  String   @default("admin")
   version   Int      @default(1)
+
+  @@index([at, available])
 }

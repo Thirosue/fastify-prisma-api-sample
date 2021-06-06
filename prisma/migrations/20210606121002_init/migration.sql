@@ -15,7 +15,6 @@ CREATE TABLE "Resavation" (
     "id" SERIAL NOT NULL,
     "at" BIGINT NOT NULL,
     "stock" INTEGER NOT NULL,
-    "available" INTEGER NOT NULL,
     "createAt" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "createBy" TEXT NOT NULL DEFAULT E'admin',
     "updateAt" TIMESTAMPTZ NOT NULL,
@@ -41,6 +40,9 @@ CREATE TABLE "ResavationRecord" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Resavation.at_unique" ON "Resavation"("at");
+
+-- CreateIndex
+CREATE INDEX "ResavationRecord.at_available_index" ON "ResavationRecord"("at", "available");
 
 -- AddForeignKey
 ALTER TABLE "ResavationRecord" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

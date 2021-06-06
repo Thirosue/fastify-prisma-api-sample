@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { User, IQuery } from './type'
+import { User, IQuery } from './user.type'
 
 const prisma = new PrismaClient()
 
@@ -36,7 +36,7 @@ export async function find(id: number) {
             name: true
         }
     })
-    return user;
+    return user
 }
 
 export async function findAll(query: IQuery) {
@@ -65,6 +65,6 @@ export async function findAll(query: IQuery) {
     return {
         count,
         data: users
-    };
+    }
 }
 
