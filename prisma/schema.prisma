@@ -14,6 +14,10 @@ model User {
   id               Int                @id @default(autoincrement())
   name             String?
   ResavationRecord ResavationRecord[]
+  createAt         DateTime           @default(now()) @db.Timestamptz
+  createBy         String             @default("admin")
+  updateAt         DateTime           @updatedAt @db.Timestamptz
+  updateBy         String             @default("admin")
 }
 
 model Resavation {

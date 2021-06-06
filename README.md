@@ -1,5 +1,15 @@
 # fastify-prisma-api-sample
 
+## Migration
+
+```
+npx prisma migrate dev --name init
+```
+
+```
+npx prisma db seed --preview-feature
+```
+
 ## Project Setup
 
 1. Create a new npm project, install Fastify, and install typescript & node.js types as peer dependencies:
