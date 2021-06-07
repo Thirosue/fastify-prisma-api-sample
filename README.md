@@ -121,7 +121,9 @@ content-type: application/json; charset=utf-8
 {}
 ```
 
-## Project Setup Info
+## Info
+
+### Project Setup
 
 1. Create a new npm project, install Fastify, and install typescript & node.js types as peer dependencies:
 
@@ -162,4 +164,14 @@ npx prisma init
 
 ```
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mydb"
+```
+
+### Formater
+
+Added the following to VS Code setting.json
+
+```
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
 ```
