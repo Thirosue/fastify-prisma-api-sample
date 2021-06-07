@@ -15,10 +15,10 @@ export async function reserve(at: number, userId: number) {
             available: true
         }
     })
-    if(!available) {
+    if (!available) {
         throw new Error(MESSAGE_BOOKED)
     }
-    
+
     const reserved = await prisma.resavationRecord.updateMany({
         data: {
             userId,

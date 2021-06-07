@@ -10,7 +10,7 @@ export default (app: FastifyInstance) => {
       await reserve(at, uid)
       reply.header('Content-Type', 'application/json').code(201)
       reply.send({})
-    } catch(e) {
+    } catch (e) {
       console.error(e)
       reply.header('Content-Type', 'application/json').code(404)
       reply.send({})

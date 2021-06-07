@@ -46,13 +46,13 @@ export async function findAll(query: IQuery) {
         }
     }
     let orderBy = {}
-    if(query.orderBy) {
+    if (query.orderBy) {
         orderBy = {
             [query.orderBy]: query.order
         }
     }
 
-    const count = await prisma.user.count({ 
+    const count = await prisma.user.count({
         where
     })
     const data = await prisma.user.findMany({
