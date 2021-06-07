@@ -6,11 +6,9 @@ const json =
   "stock": 3
 };
 
-const bigIntValue = BigInt(1622509200000);
-
 const json2 =
 {
-  "at": bigIntValue,
+  "at": BigInt(1622509200000),
   "stock": 3
 };
 
