@@ -28,6 +28,7 @@ model Resavation {
   createBy String   @default("admin")
   updateAt DateTime @updatedAt @db.Timestamptz
   updateBy String   @default("admin")
+  version  Int      @default(1)
 }
 
 model ResavationRecord {
