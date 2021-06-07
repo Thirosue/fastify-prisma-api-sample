@@ -40,19 +40,23 @@ export async function find(id: number) {
 }
 
 export async function findAll(query: IQuery) {
-    const count = await prisma.user.count();
+    const where = {
+        name: {
+            contains: query.name
+        }
+    }
     let orderBy = {}
     if(query.orderBy) {
         orderBy = {
             [query.orderBy]: query.order
         }
     }
-    const users = await prisma.user.findMany({
-        where: {
-            name: {
-                contains: query.name
-            }
-        },
+
+    const count = await prisma.user.count({ 
+        where
+    })
+    const data = await prisma.user.findMany({
+        where,
         skip: query.rows * query.page,
         take: Number(query.rows),
         orderBy,
@@ -64,7 +68,7 @@ export async function findAll(query: IQuery) {
 
     return {
         count,
-        data: users
+        data
     }
 }
 
