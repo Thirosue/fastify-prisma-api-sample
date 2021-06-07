@@ -1,4 +1,3 @@
-import moment from 'moment'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -8,7 +7,7 @@ for(let i = 0; i < 101; i++) {
     users.push({ name: `name${i + 1}`})
 }
 
-const at = moment('2021-06-01 10:00').toDate().getTime()
+const at = new Date('2021-06-01 10:00').getTime()
 const records:any = []
 for(let i = 0; i < 3; i++) {
     records.push({ 
@@ -37,7 +36,7 @@ async function main() {
 
     const result = await prisma.resavation.findFirst();
     console.log(result);
-    console.log(moment(Number(result?.at)));
+    console.log(new Date(Number(result?.at)));
 }
 
 main()

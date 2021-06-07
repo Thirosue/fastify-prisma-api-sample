@@ -1,4 +1,3 @@
-import moment from 'moment'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -6,7 +5,7 @@ const prisma = new PrismaClient()
 const MESSAGE_BOOKED = 'That reservation is already booked! Please try again.'
 
 export async function reserve(at: number, userId: number) {
-    console.log(`booking... at: ${moment(Number(at)).format()}`);
+    console.log(`booking... at: ${new Date(at)}`)
 
     // UPDATE "ResavationRecord" SET userId = 1, available = false WHERE ID = (select ID from "ResavationRecord" where available = true limit 1);
     // record locked
