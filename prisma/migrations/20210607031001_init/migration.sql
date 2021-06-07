@@ -6,6 +6,7 @@ CREATE TABLE "User" (
     "createBy" TEXT NOT NULL DEFAULT E'admin',
     "updateAt" TIMESTAMPTZ NOT NULL,
     "updateBy" TEXT NOT NULL DEFAULT E'admin',
+    "version" INTEGER NOT NULL DEFAULT 1,
 
     PRIMARY KEY ("id")
 );

@@ -161,5 +161,5 @@ npx prisma init
 6. Setting datasorce configuration file `.env`:
 
 ```
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mydb?schema=postgres"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mydb"
 ```
