@@ -2,15 +2,15 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-const users:any = []
-for(let i = 0; i < 101; i++) {
-    users.push({ name: `name${i + 1}`})
+const users: any = []
+for (let i = 0; i < 101; i++) {
+    users.push({ name: `name${i + 1}` })
 }
 
 const at = new Date('2021-06-01 10:00').getTime()
-const records:any = []
-for(let i = 0; i < 3; i++) {
-    records.push({ 
+const records: any = []
+for (let i = 0; i < 3; i++) {
+    records.push({
         at
     })
 }
@@ -19,7 +19,7 @@ async function main() {
     const created = await prisma.user.createMany({
         data: users
     })
-    console.log(created);
+    console.log(created)
 
     const resavation = await prisma.resavation.create({
         data: {
@@ -27,20 +27,20 @@ async function main() {
             stock: 3
         }
     })
-    console.log(resavation);
+    console.log(resavation)
 
     const results = await prisma.resavationRecord.createMany({
         data: records
     })
-    console.log(results);
+    console.log(results)
 
-    const result = await prisma.resavation.findFirst();
-    console.log(result);
-    console.log(new Date(Number(result?.at)));
+    const result = await prisma.resavation.findFirst()
+    console.log(result)
+    console.log(new Date(Number(result?.at)))
 }
 
 main()
-    .catch(e => {
+    .catch((e) => {
         console.error(e)
         process.exit(1)
     })

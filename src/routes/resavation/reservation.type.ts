@@ -1,3 +1,3 @@
 export interface IParam {
-    at: number;
+    at: number
 }

@@ -1,4 +1,4 @@
 export interface ResavationRecord {
-    at: number;
-    uid: number;
+    at: number
+    uid: number
 }

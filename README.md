@@ -172,6 +172,12 @@ Added the following to VS Code setting.json
 
 ```
     "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+```
+
+command
+
+```
+npx prettier --write **/*.ts
 ```

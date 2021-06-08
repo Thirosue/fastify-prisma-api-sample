@@ -22,7 +22,7 @@ export async function remove(id: number) {
     await prisma.user.delete({
         where: {
             id
-        },
+        }
     })
 }
 
@@ -71,4 +71,3 @@ export async function findAll(query: IQuery) {
         data
     }
 }
-

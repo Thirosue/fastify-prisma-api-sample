@@ -1,14 +1,14 @@
 export interface User {
-    name: string;
+    name: string
 }
 
 export interface IParam {
-    id: number;
+    id: number
 }
 export interface IQuery {
-    name?: string;
-    page: number;
-    rows: number;
-    order?: string;
-    orderBy?: string;
+    name?: string
+    page: number
+    rows: number
+    order?: string
+    orderBy?: string
 }
