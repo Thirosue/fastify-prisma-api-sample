@@ -3,7 +3,7 @@ import { ResavationRecord } from './resavationRecord.type'
 import { reserve } from './resavationRecord.service'
 
 export default (app: FastifyInstance) => {
-    app.put<{ Body: ResavationRecord }>(
+    app.post<{ Body: ResavationRecord }>(
         '/api/resavationRecord',
         async (request, reply) => {
             try {

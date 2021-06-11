@@ -4,6 +4,7 @@ import reservationRoute from './routes/resavation/reservation.route'
 import resavationRecordRoute from './routes/resavationRecord/resavationRecord.route'
 
 const server = fastify()
+server.register(require('fastify-cors'))
 userRoute(server)
 reservationRoute(server)
 resavationRecordRoute(server)
